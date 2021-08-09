@@ -30,9 +30,9 @@ def LCG(a, b, N, k, t):
     return cadena
 
 def wichmanHill(k ,t):
-    s1 = randint(1, 300000)
-    s2 = randint(1, 300000)
-    s3 = randint(1, 300000)
+    s1 = randint(1, 30000)
+    s2 = randint(1, 30000)
+    s3 = randint(1, 30000)
     cadena = ''
     for i in range(t):
         s1 = (171 * s1) % 30269
