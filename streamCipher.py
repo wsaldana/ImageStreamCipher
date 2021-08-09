@@ -33,17 +33,21 @@ def wichmanHill(k ,t):
     s1 = randint(1, 300000)
     s2 = randint(1, 300000)
     s3 = randint(1, 300000)
-    
+    cadena = ''
     for i in range(t):
         s1 = (171 * s1) % 30269
         s2 = (172 * s2) % 30307
         s3 = (170 * s3) % 30323
-
         v = (s1/30269 + s2/30307 + s3/30323) % 1
-    
-    
-
-    return 
+        
+        xb = str(bin(v))[2:]
+        if len(xb) > k:
+            cadena += xb[:k]
+        elif len(xb) < k:
+            cadena += ('0'*(k-len(xb))) + xb
+        else:
+            cadena += xb
+    return cadena
 
     #n longitud de cadena de feedback
     #taps lista con posiciones
