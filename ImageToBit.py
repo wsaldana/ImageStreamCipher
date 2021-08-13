@@ -77,13 +77,23 @@ r3 = xor(r2, s3[0])
 
 rf = xor(s0, r3)
 
-I2 = bits2img(s2[1], I.shape)
-I3 = bits2img(s3, I.shape)
-I = bits2img(xor(s2[0], s3), I.shape)
+I1 = bits2img(r1, I.shape)
+I2 = bits2img(r2, I.shape)
+I3 = bits2img(r3, I.shape)
+I4 = bits2img(rf, I.shape)
 
 plt.figure(figsize=(15,8))
-plt.subplot(1,2,1)
+
+plt.subplot(2,2,1)
+plt.imshow(I1, cmap='gray')
+
+plt.subplot(2,2,2)
 plt.imshow(I2, cmap='gray')
-plt.subplot(1,2,2)
+
+plt.subplot(2,2,3)
 plt.imshow(I3, cmap='gray')
+
+plt.subplot(2,2,4)
+plt.imshow(I4, cmap='gray')
+
 plt.show()
