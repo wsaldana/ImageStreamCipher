@@ -27,7 +27,7 @@ def LCG(a, b, N, k, t):
         else:
             cadena += xb
         x0 = x1
-    return cadena
+    return [int(i) for i in cadena], cadena
 
 def wichmanHill(k ,t):
     s1 = randint(1, 300000)
@@ -49,19 +49,31 @@ def wichmanHill(k ,t):
     #taps lista con posiciones
     #seed x0 de longitud n
     #iteraciones burnin phase
-def LFSR(n, taps, iteraciones):
-    seed = ""
+def LFSR(seed, n, taps, iteraciones):
+    #seed = ""
     bit = ""
+    taps = sorted(taps, reverse = True)
     cont = 0
-    for i in range(n):
-        x = randomNumber():
+    r = 0
+    
+    '''for i in range(n):
+        x = randomNumber()
 
-        seed += str(x)
-
+        seed += str(x)'''
+      
+    'print("Without LFSR: " + seed)'
+    
     while (cont != iteraciones):
-        bit = (seed ^ )
-
-    return 
+        x = int(seed[0])
+        for i in taps[1:]:
+            x = x ^ int(seed[i])
+            
+        seed = str(x) + seed
+        cont += 1
+    
+    print("With LFSR: " + seed)
+        
+    return [int(i) for i in seed], seed
 
 def randomNumber():
     num = randint(0, 1)
