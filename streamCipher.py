@@ -60,13 +60,6 @@ def LFSR(seed, n, taps, iteraciones):
     cont = 0
     r = 0
     
-    '''for i in range(n):
-        x = randomNumber()
-
-        seed += str(x)'''
-      
-    'print("Without LFSR: " + seed)'
-    
     while (cont != iteraciones):
         x = int(seed[0])
         for i in taps[1:]:
@@ -74,13 +67,9 @@ def LFSR(seed, n, taps, iteraciones):
             
         seed = str(x) + seed
         cont += 1
-    
-    print("With LFSR: " + seed)
         
     return [int(i) for i in seed], seed
 
 def randomNumber():
     num = randint(0, 1)
     return num
-
-print(LCG(2,3,5,8,10))

@@ -1,3 +1,15 @@
+'''
+UNIVERSIDAD DEL VALLE DE GUATEMALA
+Criptografía y Cifrado de la Información
+Sección 10
+
+Walter Danilo Saldaña Salguero 19897
+Jose Abraham Gutierrez Corado 19111
+Javier Alejandro Cotto Argueta 19324
+
+LABORATORIO #3
+'''
+
 import numpy as np
 import matplotlib.pyplot as plt
 import re
@@ -64,7 +76,7 @@ plt.show()
 s0 = img2bits(I)
 
 #Stream 1
-s1 = sc.LCG(3,5,2,8,int(len(s0)/8))
+s1 = sc.LCG(3,5,254,8,int(len(s0)/8))
 r1 = xor(s0, s1[0])
 
 #Stream 2
@@ -84,15 +96,19 @@ I4 = bits2img(rf, I.shape)
 
 plt.figure(figsize=(15,8))
 
+#Graficar primera transformación (Con algoritmo LCG)
 plt.subplot(2,2,1)
 plt.imshow(I1, cmap='gray')
 
+#Graficar segunda transformación (Con algoritmo LFSR)
 plt.subplot(2,2,2)
 plt.imshow(I2, cmap='gray')
 
+#Graficar tercera transformación (Con algoritmo wichmanHill)
 plt.subplot(2,2,3)
 plt.imshow(I3, cmap='gray')
 
+#Graficar cuarta transformación (xor de la transformación resultante con la imagen original)
 plt.subplot(2,2,4)
 plt.imshow(I4, cmap='gray')
 
